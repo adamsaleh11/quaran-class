@@ -1,103 +1,296 @@
+"use client";
 import Image from "next/image";
+import {
+  ChurchIcon as Mosque,
+  Book,
+  GraduationCap,
+  Phone,
+  Mail,
+  Clock,
+  Users,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import RegistrationForm from "@/components/registration-form";
+import Testimonials from "@/components/testimonials";
+import FAQ from "@/components/faq";
+import { useRef } from "react";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const registrationRef = useRef<HTMLDivElement>(null);
+  const scrollToRegistration = () => {
+    registrationRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  return (
+    <main className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative bg-[#004d40] text-white">
+        <div className="absolute inset-0 bg-[url('/hero-pattern.svg')] opacity-10"></div>
+        <div className="container mx-auto px-4 py-20 md:py-32 relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              Learn the Qur&rsquo;an with Expert Guidance
+            </h1>
+            <p className="text-xl md:text-2xl mb-8">
+              Comprehensive Islamic education with 15 years of teaching
+              experience
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                size="lg"
+                onClick={scrollToRegistration}
+                className="bg-white text-[#004d40] hover:bg-white/90"
+              >
+                Enroll Now
+              </Button>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </section>
+
+      {/* Teacher Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            <div className="md:w-1/2">
+              <Image
+                src="/ayatul-qursi.jpeg"
+                alt="Qur'an Teacher"
+                width={400}
+                height={400}
+                className="rounded-full mx-auto shadow-lg object-cover"
+              />
+            </div>
+            <div className="md:w-1/2">
+              <h2 className="text-3xl font-bold mb-6 text-[#004d40]">
+                Meet Your Teacher
+              </h2>
+              <div className="flex items-center mb-4">
+                <GraduationCap className="h-6 w-6 mr-2 text-[#004d40]" />
+                <p className="text-lg">Qur&rsquo;an teacher for 15 years</p>
+              </div>
+              <p className="text-gray-700 mb-6">
+                With a deep understanding of Islamic teachings and a passion for
+                education, our experienced teacher provides a structured and
+                comprehensive approach to learning the Qur&rsquo;an and Islamic
+                principles.
+              </p>
+              <p className="text-gray-700 mb-6">
+                Students follow a carefully designed syllabus that covers
+                everything from basic knowledge of Islam to detailed stories of
+                the prophets, ensuring a well-rounded Islamic education.
+              </p>
+              <p className="italic text-gray-600">Jazakallah Khayr</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Curriculum Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4 text-[#004d40]">
+              Our Comprehensive Curriculum
+            </h2>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+              Students follow a structured syllabus which includes:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                title: "Qur'an Reading",
+                desc: "Learn how to read the Qur'an with proper tajweed",
+              },
+              { title: "Memorization", desc: "Memorise surahs and juz amma" },
+              {
+                title: "Prayer",
+                desc: "How to perform five daily prayers",
+                icon: Mosque,
+              },
+              {
+                title: "Names of Allah",
+                desc: "Learn the 99 names of Allah swt",
+              },
+              {
+                title: "Islamic Knowledge",
+                desc: "Various iskar and hadith, Six kalmas ayatul kursi",
+              },
+              {
+                title: "Prophets' Stories",
+                desc: "Complete stories of prophet Isa (AS) and all other prophets",
+                icon: Users,
+              },
+              {
+                title: "Six Kalmas",
+                desc: "Six kalmas ayatul kursi",
+                icon: Users,
+              },
+              {
+                title: "Azan and Iqama",
+                desc: "Learn the call to prayer and its establishment",
+                icon: Users,
+              },
+              {
+                title: "Islamic Months",
+                desc: "Understanding the Islamic calendar",
+                icon: Users,
+              },
+              {
+                title: "Angels",
+                desc: "Learn about angels in Islam",
+                icon: Users,
+              },
+              {
+                title: "Names of Prophets",
+                desc: "Names of all prophets mentioned in the Qur&rsquo;an",
+                icon: Users,
+              },
+            ].map((item, idx) => {
+              const Icon = item.icon || Book;
+              return (
+                <Card key={idx}>
+                  <CardContent className="pt-6">
+                    <div className="flex items-start mb-4">
+                      <Icon className="h-6 w-6 mr-2 text-[#004d40] mt-1" />
+                      <div>
+                        <h3 className="font-bold text-lg">{item.title}</h3>
+                        <p className="text-gray-700">{item.desc}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="bg-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-[#004d40] mb-4">
+              What Our Students Say
+            </h2>
+            <Image
+              src="/ayatul-qursi.jpeg"
+              alt="Testimonial Visual"
+              width={120}
+              height={120}
+              className="mx-auto rounded-full shadow-md mb-6 object-cover"
+            />
+          </div>
+          <Testimonials />
+        </div>
+      </section>
+
+      {/* Registration Section */}
+      <section
+        ref={registrationRef}
+        id="registration"
+        className="py-16 bg-white"
+      >
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4 text-[#004d40]">
+                Register for Classes
+              </h2>
+              <p className="text-xl text-gray-700">
+                Join our classes and begin your journey of Islamic learning
+              </p>
+            </div>
+
+            <RegistrationForm />
+
+            <div className="mt-12 text-center">
+              <p className="text-lg text-gray-700 mb-2">
+                For more information please call:
+              </p>
+              <p className="text-2xl font-bold text-[#004d40] mb-4">
+                Syed at 613-823-8786
+              </p>
+              <p className="italic text-gray-600">Jazakallah Khayr</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <FAQ />
+
+      {/* Footer */}
+      <footer className="bg-[#004d40] text-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <h3 className="text-xl font-bold mb-4">Qur&rsquo;an Classes</h3>
+              <p className="mb-4">
+                Providing quality Islamic education for students of all ages.
+              </p>
+              <p>Jazakallah Khayr</p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold mb-4">Contact Us</h3>
+              <div className="flex items-center mb-2">
+                <Phone className="h-5 w-5 mr-2" />
+                <p>613-823-8786</p>
+              </div>
+              <div className="flex items-center mb-2">
+                <Mail className="h-5 w-5 mr-2" />
+                <p>info@quranclasses.com</p>
+              </div>
+              <div className="flex items-center">
+                <Clock className="h-5 w-5 mr-2" />
+                <p>Mon-Fri: 9am-7pm</p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold mb-4">Quick Links</h3>
+              <ul className="space-y-2">
+                <li>
+                  <a href="#" className="hover:underline">
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:underline">
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:underline">
+                    Curriculum
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:underline">
+                    Register
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:underline">
+                    FAQ
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t border-white/20 mt-8 pt-8 text-center">
+            <p>
+              &copy; {new Date().getFullYear()} Qur&rsquo;an Classes. All rights
+              reserved.
+            </p>
+          </div>
+        </div>
       </footer>
-    </div>
+    </main>
   );
 }
