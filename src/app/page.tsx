@@ -285,7 +285,7 @@ export default function Home() {
 
           <div className="border-t border-white/20 mt-8 pt-8 text-center">
             <p>
-              &copy; {new Date().getFullYear()} Qur&rsquo;an Classes. All rights
+              &copy; {new Date().getFullYear()} Saleh Groups. All rights
               reserved.
             </p>
           </div>
