@@ -103,11 +103,13 @@ export default function RegistrationForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-6 bg-gray-50 p-6 rounded-lg"
+      className="space-y-6 bg-white p-6 rounded-lg shadow-md"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
-          <Label htmlFor="name">Full Name</Label>
+          <Label htmlFor="name" className="text-gray-800">
+            Full Name
+          </Label>
           <Input
             id="name"
             name="name"
@@ -115,11 +117,14 @@ export default function RegistrationForm() {
             onChange={handleChange}
             placeholder="Enter your full name"
             required
+            className="text-gray-900"
           />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="email">Email</Label>
+          <Label htmlFor="email" className="text-gray-800">
+            Email
+          </Label>
           <Input
             id="email"
             name="email"
@@ -128,11 +133,14 @@ export default function RegistrationForm() {
             onChange={handleChange}
             placeholder="Enter your email"
             required
+            className="text-gray-900"
           />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="phone">Phone Number</Label>
+          <Label htmlFor="phone" className="text-gray-800">
+            Phone Number
+          </Label>
           <Input
             id="phone"
             name="phone"
@@ -141,16 +149,19 @@ export default function RegistrationForm() {
             onChange={handleChange}
             placeholder="Enter your phone number"
             required
+            className="text-gray-900"
           />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="age">Age</Label>
+          <Label htmlFor="age" className="text-gray-800">
+            Age
+          </Label>
           <Select
             onValueChange={(value) => handleSelectChange("age", value)}
             value={formData.age}
           >
-            <SelectTrigger>
+            <SelectTrigger className="text-gray-900">
               <SelectValue placeholder="Select age group" />
             </SelectTrigger>
             <SelectContent>
@@ -163,7 +174,7 @@ export default function RegistrationForm() {
       </div>
 
       <div className="space-y-2">
-        <Label>Experience Level</Label>
+        <Label className="text-gray-800">Experience Level</Label>
         <RadioGroup
           defaultValue="beginner"
           value={formData.level}
@@ -172,19 +183,19 @@ export default function RegistrationForm() {
         >
           <div className="flex items-center space-x-2">
             <RadioGroupItem value="beginner" id="beginner" />
-            <Label htmlFor="beginner">
+            <Label htmlFor="beginner" className="text-gray-800">
               Beginner - New to Qur&rsquo;an and Islamic studies
             </Label>
           </div>
           <div className="flex items-center space-x-2">
             <RadioGroupItem value="intermediate" id="intermediate" />
-            <Label htmlFor="intermediate">
+            <Label htmlFor="intermediate" className="text-gray-800">
               Intermediate - Some knowledge of Qur&rsquo;an
             </Label>
           </div>
           <div className="flex items-center space-x-2">
             <RadioGroupItem value="advanced" id="advanced" />
-            <Label htmlFor="advanced">
+            <Label htmlFor="advanced" className="text-gray-800">
               Advanced - Seeking to deepen knowledge
             </Label>
           </div>
@@ -192,7 +203,9 @@ export default function RegistrationForm() {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="message">Additional Information</Label>
+        <Label htmlFor="message" className="text-gray-800">
+          Additional Information
+        </Label>
         <Textarea
           id="message"
           name="message"
@@ -200,6 +213,7 @@ export default function RegistrationForm() {
           onChange={handleChange}
           placeholder="Tell us about your goals or any questions you have"
           rows={4}
+          className="text-gray-900"
         />
       </div>
 

@@ -1,4 +1,5 @@
 "use client";
+
 import {
   Accordion,
   AccordionContent,
@@ -21,7 +22,7 @@ export default function FAQ() {
     {
       question: "How are the classes structured?",
       answer:
-        "Classes follow a structured syllabus covering Qur&apos;an reading, memorization, Islamic principles, and more. Each session includes practical learning, discussion, and homework to reinforce concepts.",
+        "Classes follow a structured syllabus covering Qur'an reading, memorization, Islamic principles, and more. Each session includes practical learning, discussion, and homework to reinforce concepts.",
     },
     {
       question: "Are classes available online or only in-person?",
@@ -41,14 +42,14 @@ export default function FAQ() {
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-4 text-[#004d40]">
             Frequently Asked Questions
           </h2>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            Find answers to common questions about our Qur&apos;an classes
+          <p className="text-xl text-gray-800 max-w-3xl mx-auto">
+            Find answers to common questions about our Qur’an classes
           </p>
         </div>
 
@@ -56,10 +57,10 @@ export default function FAQ() {
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`}>
-                <AccordionTrigger className="text-left font-medium text-lg">
+                <AccordionTrigger className="text-left font-medium text-lg text-gray-900">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-gray-700">
+                <AccordionContent className="text-gray-800">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
@@ -67,8 +68,8 @@ export default function FAQ() {
           </Accordion>
 
           <div className="mt-8 text-center">
-            <p className="text-gray-700">
-              Don&rsquo;t see your question? Contact us at{" "}
+            <p className="text-gray-800">
+              Don’t see your question? Contact us at{" "}
               <span className="font-bold">613-823-8786</span>
             </p>
           </div>

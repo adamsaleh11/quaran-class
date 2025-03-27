@@ -146,19 +146,22 @@ export default function Home() {
               },
               {
                 title: "Names of Prophets",
-                desc: "Names of all prophets mentioned in the Qur&rsquo;an",
+                desc: "Names of all prophets mentioned in the Qur'an",
                 icon: Users,
               },
             ].map((item, idx) => {
               const Icon = item.icon || Book;
               return (
-                <Card key={idx}>
+                <Card
+                  key={idx}
+                  className="bg-[#1c1c1c] text-white shadow-lg rounded-xl transition-all duration-300"
+                >
                   <CardContent className="pt-6">
                     <div className="flex items-start mb-4">
-                      <Icon className="h-6 w-6 mr-2 text-[#004d40] mt-1" />
+                      <Icon className="h-6 w-6 mr-2 text-[#4caf50] mt-1" />
                       <div>
                         <h3 className="font-bold text-lg">{item.title}</h3>
-                        <p className="text-gray-700">{item.desc}</p>
+                        <p className="text-gray-300">{item.desc}</p>
                       </div>
                     </div>
                   </CardContent>
@@ -170,29 +173,13 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="bg-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#004d40] mb-4">
-              What Our Students Say
-            </h2>
-            <Image
-              src="/ayatul-qursi.jpeg"
-              alt="Testimonial Visual"
-              width={120}
-              height={120}
-              className="mx-auto rounded-full shadow-md mb-6 object-cover"
-            />
-          </div>
-          <Testimonials />
-        </div>
-      </section>
+      <Testimonials />
 
       {/* Registration Section */}
       <section
         ref={registrationRef}
         id="registration"
-        className="py-16 bg-white"
+        className="py-16 bg-gray-100"
       >
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">

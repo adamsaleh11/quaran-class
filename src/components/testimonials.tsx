@@ -23,24 +23,18 @@ export default function Testimonials() {
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4 text-[#004d40]">
-            What Our Students Say
-          </h2>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            Hear from those who have benefited from our Qur&rsquo;an classes
-          </p>
-        </div>
-
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="border-none shadow-lg">
+            <Card
+              key={index}
+              className="bg-[#1c1c1c] text-white shadow-lg rounded-xl"
+            >
               <CardContent className="pt-6">
                 <div className="flex flex-col items-center text-center">
                   <Avatar className="h-16 w-16 mb-4 bg-[#004d40] text-white">
                     <AvatarFallback>{testimonial.avatar}</AvatarFallback>
                   </Avatar>
-                  <p className="text-gray-700 mb-4 italic">
+                  <p className="text-gray-300 mb-4 italic">
                     &ldquo;{testimonial.text}&rdquo;
                   </p>
                   <p className="font-bold">{testimonial.name}</p>
