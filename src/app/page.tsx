@@ -272,8 +272,16 @@ export default function Home() {
 
           <div className="border-t border-white/20 mt-8 pt-8 text-center">
             <p>
-              &copy; {new Date().getFullYear()} Saleh Groups. All rights
-              reserved.
+              &copy; {new Date().getFullYear()}{" "}
+              <a
+                href="https://saleh-software.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 decoration-white hover:text-gray-200 font-semibold"
+              >
+                Saleh Groups
+              </a>
+              . All rights reserved.
             </p>
           </div>
         </div>
